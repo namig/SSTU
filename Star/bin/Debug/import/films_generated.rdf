@@ -1,57 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/08ef9132-b995-4fe2-8b5b-b38589862bc4">
-    <films rdf:resource="http://www.brightstardb.com/.well-known/genid/52d4b494-8b68-495c-b663-249b83b8d361" xmlns="http://brightstardb.com/namespaces/default/" />
+  <rdf:Description rdf:about="http://www.films.org/actors#e9718987-b7fe-43af-9e5f-b98118ed74f9">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://www.films.org/#">Harrison Ford</name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/a86c41db-73c8-40d5-93e6-0ffa158e102d">
-    <films rdf:resource="http://www.brightstardb.com/.well-known/genid/bb35b6f4-4921-4341-8048-a851d4b4adf8" xmlns="http://brightstardb.com/namespaces/default/" />
+  <rdf:Description rdf:about="http://www.films.org/films#d16ea87c-8d13-430a-8280-2b32ff10298d">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://www.films.org/#">Forsag</name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/55df11b1-b12e-49f9-9ee9-74f8da2b10dd">
-    <films rdf:resource="http://www.brightstardb.com/.well-known/genid/8aec5a22-1497-4527-83d3-0fe1502f1bed" xmlns="http://brightstardb.com/namespaces/default/" />
+  <rdf:Description rdf:about="http://www.films.org/actors#e9718987-b7fe-43af-9e5f-b98118ed74f9">
+    <playIn rdf:resource="http://www.films.org/films#d16ea87c-8d13-430a-8280-2b32ff10298d" xmlns="http://www.films.org/#" />
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/52d4b494-8b68-495c-b663-249b83b8d361">
-    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://brightstardb.com/namespaces/default/">Forsag</name>
+  <rdf:Description rdf:about="http://www.films.org/actors#e9718987-b7fe-43af-9e5f-b98118ed74f9">
+    <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime" xmlns="http://www.films.org/#">1942-07-13T00:00:00.0000000</dob>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/08ef9132-b995-4fe2-8b5b-b38589862bc4">
-    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://brightstardb.com/namespaces/default/">Harrison Ford</name>
+  <rdf:Description rdf:about="http://www.films.org/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology" />
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/a86c41db-73c8-40d5-93e6-0ffa158e102d">
-    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://brightstardb.com/namespaces/default/">Harrison Ford</name>
+  <rdf:Description rdf:about="http://www.films.org/#playIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/bb35b6f4-4921-4341-8048-a851d4b4adf8">
-    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://brightstardb.com/namespaces/default/">Forsag</name>
+  <rdf:Description rdf:about="http://www.films.org/actors#e9718987-b7fe-43af-9e5f-b98118ed74f9">
+    <rdf:type rdf:resource="http://www.films.org/#Actor" />
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/8aec5a22-1497-4527-83d3-0fe1502f1bed">
-    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://brightstardb.com/namespaces/default/">Forsag</name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/55df11b1-b12e-49f9-9ee9-74f8da2b10dd">
-    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string" xmlns="http://brightstardb.com/namespaces/default/">Harrison Ford</name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/52d4b494-8b68-495c-b663-249b83b8d361">
-    <rdf:type rdf:resource="http://brightstardb.com/namespaces/default/Film" />
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/08ef9132-b995-4fe2-8b5b-b38589862bc4">
-    <rdf:type rdf:resource="http://brightstardb.com/namespaces/default/Actor" />
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/a86c41db-73c8-40d5-93e6-0ffa158e102d">
-    <rdf:type rdf:resource="http://brightstardb.com/namespaces/default/Actor" />
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/bb35b6f4-4921-4341-8048-a851d4b4adf8">
-    <rdf:type rdf:resource="http://brightstardb.com/namespaces/default/Film" />
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/8aec5a22-1497-4527-83d3-0fe1502f1bed">
-    <rdf:type rdf:resource="http://brightstardb.com/namespaces/default/Film" />
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/55df11b1-b12e-49f9-9ee9-74f8da2b10dd">
-    <rdf:type rdf:resource="http://brightstardb.com/namespaces/default/Actor" />
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/08ef9132-b995-4fe2-8b5b-b38589862bc4">
-    <dateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime" xmlns="http://brightstardb.com/namespaces/default/">1942-07-13T00:00:00.0000000</dateOfBirth>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/a86c41db-73c8-40d5-93e6-0ffa158e102d">
-    <dateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime" xmlns="http://brightstardb.com/namespaces/default/">1942-07-13T00:00:00.0000000</dateOfBirth>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.brightstardb.com/.well-known/genid/55df11b1-b12e-49f9-9ee9-74f8da2b10dd">
-    <dateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime" xmlns="http://brightstardb.com/namespaces/default/">1942-07-13T00:00:00.0000000</dateOfBirth>
+  <rdf:Description rdf:about="http://www.films.org/films#d16ea87c-8d13-430a-8280-2b32ff10298d">
+    <rdf:type rdf:resource="http://www.films.org/#Film" />
   </rdf:Description>
 </rdf:RDF>

@@ -35,3 +35,7 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+// Namespaces
+[assembly: NamespaceDeclaration("owl", "http://www.w3.org/2002/07/owl#")]
+[assembly: TypeIdentifierPrefix("http://www.films.org")]

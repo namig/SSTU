@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://films.org#"
-     xml:base="http:/films.org"
+<rdf:RDF xmlns="http://www.films.org#"
+     xml:base="http://www.films.org"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://films.org"/>
-    
-
+    <owl:Ontology rdf:about="http://www.films.org"/>
+   
+ 
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
-    //
+    //g
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
@@ -23,14 +23,7 @@
 
     <!-- http://www.films.org#playIn -->
 
-    <owl:ObjectProperty rdf:about="http://films.org#playIn"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
+    <owl:ObjectProperty rdf:about="http://www.films.org#playIn"/>
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
@@ -40,15 +33,25 @@
 
     <!-- http://www.films.org#Actor -->
 
-    <owl:Class rdf:about="http://films.org#Actor"/>
+    <owl:Class rdf:about="http://www.films.org#Actor"/>
     
 
 
     <!-- http://www.films.org#Film -->
 
-    <owl:Class rdf:about="http://films.org#Film"/>
+    <owl:Class rdf:about="http://www.films.org#Film"/>
     
 
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
 </rdf:RDF>
 
 

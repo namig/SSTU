@@ -29,10 +29,8 @@ namespace Star
 
         static void StartStarOld()
         {
-
             // define a connection string
             const string connectionString = "type=embedded;storesdirectory=.\\;storename=Films";
-
 
             // if the store does not exist it will be automatically
             // created when a context is created
@@ -65,31 +63,7 @@ namespace Star
 
             ctx.SaveChanges();
 
-            // open a new context, not required
-            ctx = new MyEntityContext(connectionString);
-
-            // find an actor via LINQ
-            ford = ctx.Actors.Where(a => a.Name.Equals("Harrison Ford")).FirstOrDefault();
-            var dob = ford.DateOfBirth;
-
-
-            // list his films
-            var films = ford.Films;
-
-
-            // get star wars
-            var sw = films.Where(f => f.Name.Equals("Star Wars")).FirstOrDefault();
-
-
-            // list actors in star wars
-            foreach (var actor in sw.Actors)
-            {
-                var actorName = actor.Name;
-                Console.WriteLine(actorName);
-            }
-
             BrightstarService.GetClient(connectionString).StartExport("Films", "films_gen.rdf", "http://films.org", RdfFormat.RdfXml);
-
         }
 
         static void StartStar()
@@ -101,7 +75,7 @@ namespace Star
             var ctx = new MyEntityContext(connectionString);
             var client = BrightstarService.GetClient(connectionString);
 
-            //var importJob = client.StartImport(storeName, "films.rdf", "http://films.org");
+            var importJob = client.StartImport(storeName, "films.rdf", uri, null, RdfFormat.RdfXml);
 
             // create film
             var starWars = ctx.Films.Create();
@@ -122,3 +96,10 @@ namespace Star
 
     }
 }
+
+
+// TODO: проверить русские ID
+// TODO: сделать одинаковые ссылки
+// TODO: проверить base URI
+// TODO: попробовать select by name
+// TODO: сделать автоудаление папки store

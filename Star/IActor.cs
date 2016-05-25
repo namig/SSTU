@@ -10,7 +10,7 @@ namespace Star
     [Entity("http://www.films.org#Actor")]
     public interface IActor
     {
-        [Identifier("http://www.films.org/actors#")]
+        [Identifier("http://www.films.org/actors#", KeyProperties = new []{"Name"})]
         string Id { get;  }
 
         [PropertyType("http://www.films.org#name")]

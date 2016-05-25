@@ -70,9 +70,9 @@ namespace Star
         {
             string uri = "http://films.org";
             string storeName = "Films";
-            string connectionString = "type=embedded;storesdirectory=.\\;storename=" + storeName;
+            string connectionString = "type=embedded;storesdirectory=../../Store;storename=" + storeName;
 
-            var ctx = new MyEntityContext(connectionString);
+            var ctx = new MyEntityContext(connectionString, enableOptimisticLocking: true);
             var client = BrightstarService.GetClient(connectionString);
 
             var importJob = client.StartImport(storeName, "films.rdf", uri, null, RdfFormat.RdfXml);
@@ -83,23 +83,27 @@ namespace Star
 
             // create some actors and connect them to films
             var ford = ctx.Actors.Create();
-            ford.Name = "Harrison Ford";
+            ford.Name = "HarrisonFord";
             ford.DateOfBirth = new DateTime(1942, 7, 13);
             ford.Films.Add(starWars);
 
             ctx.SaveChanges();
 
             var exportGraphJob = client.StartExport(storeName, "films_generated.rdf", null, RdfFormat.RdfXml);
-        }
+            client.DeleteStore(storeName);
 
+            //string storeDir = "../../Store/" + storeName;
+            //var existDir = Directory.Exists(storeDir);
+            //if (existDir)
+            //{
+            //    Directory.Delete(storeDir, true);  
+            //}
+            
+        }
 
 
     }
 }
 
-
-// TODO: проверить русские ID
-// TODO: сделать одинаковые ссылки
-// TODO: проверить base URI
-// TODO: попробовать select by name
 // TODO: сделать автоудаление папки store
+// TODO: попробовать select by name

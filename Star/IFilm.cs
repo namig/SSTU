@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Star
 {
-    [Entity("http://www.films.org#Film")]
+    [Entity("Фильм")]
     public interface IFilm
     {
         [Identifier("http://www.films.org/films#")]

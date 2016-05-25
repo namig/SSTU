@@ -1,6 +1,7 @@
 ﻿using BrightstarDB;
 using BrightstarDB.Client;
 using BrightstarDB.Config;
+using BrightstarDB.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,11 +33,11 @@ namespace Star
             // define a connection string
             const string connectionString = "type=embedded;storesdirectory=.\\;storename=Films";
 
+            var client = BrightstarService.GetClient(connectionString);
             // if the store does not exist it will be automatically
             // created when a context is created
             var ctx = new MyEntityContext(connectionString);
 
-            var client = BrightstarService.GetClient(connectionString);
             //var importJob = client.StartImport("Films", "films.rdf", "http://www.films.org", importFormat: RdfFormat.RdfXml);
 
             // create some films
@@ -70,40 +71,53 @@ namespace Star
         {
             string uri = "http://films.org";
             string storeName = "Films";
-            string connectionString = "type=embedded;storesdirectory=../../Store;storename=" + storeName;
+            string connectionString = "type=embedded;storesdirectory=../../Store;optimisticLocking=true;storename=" + storeName;
 
-            var ctx = new MyEntityContext(connectionString, enableOptimisticLocking: true);
             var client = BrightstarService.GetClient(connectionString);
+            if (client.DoesStoreExist(storeName))
+            {
+                client.DeleteStore(storeName);
+            }
 
-            var importJob = client.StartImport(storeName, "films.rdf", uri, null, RdfFormat.RdfXml);
+            var ctx = new MyEntityContext(connectionString, true);
+            
+            var importJob = client.StartImport(storeName, "films.rdf");
 
             // create film
             var starWars = ctx.Films.Create();
             starWars.Name = "Forsag";
 
             // create some actors and connect them to films
-            var ford = ctx.Actors.Create();
+            var ford = new Actor();
             ford.Name = "HarrisonFord";
+            ford.Context = ctx;
             ford.DateOfBirth = new DateTime(1942, 7, 13);
             ford.Films.Add(starWars);
 
-            ctx.SaveChanges();
+            try
+            {
+                ctx.SaveChanges();
+            }
+            catch (EntityKeyChangedException)
+            {
+                // Refresh the conflicted object(s) - in this case with the StoreWins mode
+                ctx.Refresh(RefreshMode.ClientWins, ford);
+                // Attempt the save again
+                ctx.SaveChanges();
+            }
 
             var exportGraphJob = client.StartExport(storeName, "films_generated.rdf", null, RdfFormat.RdfXml);
-            client.DeleteStore(storeName);
-
-            //string storeDir = "../../Store/" + storeName;
-            //var existDir = Directory.Exists(storeDir);
-            //if (existDir)
-            //{
-            //    Directory.Delete(storeDir, true);  
-            //}
-            
+           
         }
+
 
 
     }
 }
 
-// TODO: сделать автоудаление папки store
+
+// TODO: проверить русские ID
+// TODO: сделать одинаковые ссылки
+// TODO: проверить base URI
 // TODO: попробовать select by name
+// TODO: сделать автоудаление папки store
